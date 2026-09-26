@@ -1,0 +1,187 @@
+/* Custom Styles cho Header */
+.custom-header {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 12px 24px;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.logo-badge {
+  background-color: #16a34a;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 18px;
+  box-shadow: 0 4px 6px -1px rgba(22, 163, 74, 0.2);
+}
+
+/* Navigation Menu */
+.header-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-weight: 500;
+    color: #374151;
+  }
+}
+
+.nav-link {
+  transition: color 0.2s ease;
+  text-decoration: none;
+  color: #374151;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* Actions (Search, User, Cart) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .search-box {
+    display: none;
+  }
+}
+
+.search-icon-wrapper {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  pointer-events: none;
+}
+
+.search-icon-wrapper .icon-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.search-input {
+  padding-left: 58px;
+  padding-right: 20px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  font-size: 16px;
+  border: 1.5px solid transparent;
+  outline: none;
+  width: 280px;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+.action-btn {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.action-btn .icon-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.action-btn:hover .icon-img {
+  transform: scale(1.12);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 12px;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  padding: 0 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  border: 2px solid #ffffff;
+}
+
+/* Logo Hình Ảnh */
+.header-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Tùy chỉnh hiển thị cho các icon hình ảnh */
+.icon-img {
+  object-fit: contain;
+  display: block;
+}
