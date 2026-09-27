@@ -1,10 +1,11 @@
 import Header from './components/header'; 
+import Home from './features/home/home';
 
- function App() {
+function App() {
   return (
     <div className="min-h-screen bg-white">
-     
       <Header />
+      <Home />
 
      
       <main className="p-6">

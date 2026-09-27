@@ -1,0 +1,187 @@
+.banner-section {
+  position: relative;
+  width: 100%;
+  max-width: 1280px; /* Khớp tuyệt đối với max-width của header-container */
+  margin: 0 auto;    /* Căn giữa màn hình giống hệt Header */
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; /* Cho phép các phần tử con (như viền lấn trên/dưới) tràn ra ngoài khung section mà không bị cắt mất */
+  padding: 0 24px;
+}
+
+/* Ảnh viền hoa lá lấn lên trên header VÀ lấn tràn xuống dưới banner */
+.banner-border-frame {
+  position: absolute;
+  /* top âm để lấn lên phía trên header */
+  top: -35px; 
+  left: 0;
+  width: 100%;
+  /* Tăng chiều cao lên > 100% để vừa lấn lên trên vừa thừa đuôi lấn xuống dưới đúng ý */
+  height: calc(100% + 50px); /* 35px lấn trên + 35px lấn dưới (có thể điều chỉnh số này nếu muốn lấn nhiều hơn) */
+  object-fit: fill; 
+  z-index: 55; /* Cao hơn header (50) để đè lên */
+  pointer-events: none; /* Giúp click xuyên qua viền lá */
+  transform-origin: bottom center;
+  animation: topSway 4s ease-in-out infinite;
+}
+
+/* Slider Container vẫn giữ nguyên kích thước chuẩn bên trong banner */
+.banner-slider-container {
+  position: absolute;
+  top: 0;
+  left: 24px; /* Khớp với padding của banner-section */
+  right: 24px;
+  width: calc(100% - 48px);
+  height: 100%;
+  overflow: hidden; /* Cắt gọn các slide ảnh nền bên trong */
+  z-index: 1;
+}
+
+.banner-slider {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Từng slide dùng ảnh làm nền (background-image) */
+.banner-slide {
+  width: 33.3333%;
+  max-width: 1280px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 50px;
+  box-sizing: border-box;
+  background-size: 100% 100% ;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Khung nội dung chữ nằm trên nền ảnh */
+.banner-content {
+  max-width: 520px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 32px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  position: relative;
+}
+
+.banner-badge {
+  display: inline-block;
+  background-color: #16a34a;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+  margin-bottom: 16px;
+}
+
+.banner-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #14532d;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.banner-desc {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.banner-btn {
+  background-color: #16a34a;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(22, 163, 74, 0.3);
+}
+
+.banner-btn:hover {
+  background-color: #15803d;
+  transform: translateY(-1px);
+}
+
+/* Các chấm chuyển đổi slide */
+.banner-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 60; /* Nằm trên cả viền hoa để bấm chuyển slide */
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #16a34a;
+  width: 28px;
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-section {
+    height: 440px;
+    margin-top: 20px;
+  }
+
+  .banner-slide {
+    padding: 0 20px;
+    justify-content: center;
+  }
+
+  .banner-content {
+    padding: 24px 28px;
+    max-width: 100%;
+  }
+
+  .banner-title {
+    font-size: 26px;
+  }
+
+  .banner-border-frame {
+    top: -25px;
+    height: calc(100% + 50px);
+  }
+}
+
+
+@keyframes topSway {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  50% {
+    transform: skewX(0.8deg); /* Đỉnh lắc nhẹ sang phải */
+  }
+}
