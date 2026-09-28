@@ -1,8 +1,8 @@
 import './css/header.css';
-import logoImage from '../assets/logo.png';       // Đổi tên nếu file logo của bạn khác
-import searchIcon from '../assets/search.png';   // Ảnh icon tìm kiếm
-import userIcon from '../assets/account.png';     // Ảnh icon tài khoản
-import cartIcon from '../assets/cart.png';       // Ảnh icon giỏ hàng
+import logoImage from '../assets/logo.png';       
+import searchIcon from '../assets/search.png';   
+import userIcon from '../assets/account.png';    
+import cartIcon from '../assets/cart.png';      
 
 function Header() {
   return (
