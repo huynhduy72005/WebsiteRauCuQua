@@ -21,7 +21,8 @@ function Header() {
           <a href="#" className="nav-link active">Trang chủ</a>
           <a href="#" className="nav-link">Sản phẩm</a>
           <a href="#" className="nav-link">Danh mục</a>
-          
+          <a href="#" className="nav-link">Khuyến mãi</a>
+          <a href="#" className="nav-link">Đơn hàng</a>
           <a href="#" className="nav-link">Giới thiệu</a>
         </nav>
 

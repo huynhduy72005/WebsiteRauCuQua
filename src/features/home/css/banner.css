@@ -1,39 +1,67 @@
 .banner-section {
   position: relative;
   width: 100%;
-  max-width: 1280px; /* Khớp tuyệt đối với max-width của header-container */
-  margin: 0 auto;    /* Căn giữa màn hình giống hệt Header */
+  margin: 0 auto;
   height: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: visible; /* Cho phép các phần tử con (như viền lấn trên/dưới) tràn ra ngoài khung section mà không bị cắt mất */
-  padding: 0 24px;
+  padding: 0;
 }
 
-/* Ảnh viền hoa lá lấn lên trên header VÀ lấn tràn xuống dưới banner */
+@keyframes topSway1 {
+  0%, 100% { transform: skewX(0deg); }
+  50% { transform: skewX(0.6deg); }
+}
+
+@keyframes topSway2 {
+  0%, 100% { transform: skewX(0deg); }
+  50% { transform: skewX(0.9deg) translateY(-1px); } /* Lớp 2 lắc rộng hơn một chút và nhịp lệch đi */
+}
+
+/* Định dạng chung */
 .banner-border-frame {
   position: absolute;
-  /* top âm để lấn lên phía trên header */
   top: -35px; 
   left: 0;
   width: 100%;
-  /* Tăng chiều cao lên > 100% để vừa lấn lên trên vừa thừa đuôi lấn xuống dưới đúng ý */
-  height: calc(100% + 50px); /* 35px lấn trên + 35px lấn dưới (có thể điều chỉnh số này nếu muốn lấn nhiều hơn) */
+  height: calc(100% + 50px); 
   object-fit: fill; 
-  z-index: 55; /* Cao hơn header (50) để đè lên */
-  pointer-events: none; /* Giúp click xuyên qua viền lá */
+  pointer-events: none; 
   transform-origin: bottom center;
-  animation: topSway 4s ease-in-out infinite;
 }
 
-/* Slider Container vẫn giữ nguyên kích thước chuẩn bên trong banner */
+/* Lớp 1 (Ảnh cũ - nằm dưới) */
+.border-frame-layer-1 {
+  z-index: 55;
+  width: 104%;                 /* Phóng to chiều rộng ra 104% (hoặc 106%, 110% tùy ý) */
+  left: -2%;
+  animation: topSway1 4.5s ease-in-out infinite; /* Chu kỳ 4.5 giây */
+}
+
+
+/* Lớp 2 (Ảnh mới border2.png) - Đẩy xuống dưới và kéo dài tràn đáy */
+.border-frame-layer-2 {
+  z-index: 56;
+  
+  /* Đẩy khung trượt xuống dưới (tăng từ -25px lên -10px hoặc 0px tùy ý bạn muốn thấp bao nhiêu) */
+  top: -20px; 
+  width: 140%;                 /* Phóng to chiều rộng ra 104% (hoặc 106%, 110% tùy ý) */
+  left: -20%;
+  /* Tăng tổng chiều cao để phần đuôi thừa phía dưới dài ra và tràn hẳn xuống */
+  height: calc(100% + 90px); 
+  
+  animation: topSway2 3.5s ease-in-out infinite;
+}
+
+/* Slider Container lấp đầy toàn bộ banner */
 .banner-slider-container {
   position: absolute;
   top: 0;
-  left: 24px; /* Khớp với padding của banner-section */
-  right: 24px;
-  width: calc(100% - 48px);
+  left: 0;
+  right: 0;
+  width: 100%;
   height: 100%;
   overflow: hidden; /* Cắt gọn các slide ảnh nền bên trong */
   z-index: 1;
@@ -48,15 +76,15 @@
 
 /* Từng slide dùng ảnh làm nền  */
 .banner-slide {
-  width: 33.3333%;
-  max-width: 1280px;
+  width: calc(100% / 3);
+  flex: 0 0 calc(100% / 3);
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 0 50px;
   box-sizing: border-box;
-  background-size: 100% 100% ;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;

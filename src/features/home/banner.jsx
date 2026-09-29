@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './css/banner.css';
 import borderFrame from '../../assets/banner-border.png'; 
+import borderFrame2 from '../../assets/border.png';
 import banner1 from '../../assets/banner1.png';
 import banner2 from '../../assets/banner2.png';
 import banner3 from '../../assets/banner3.png';
@@ -65,8 +66,9 @@ function Banner() {
         </div>
       </div>
 
-      {/* Ảnh khung viền hoa lá bao quanh lấn đè lên header */}
-      <img src={borderFrame} alt="Banner Border Frame" className="banner-border-frame" />
+      {/* 2 Lớp ảnh khung viền hoa lá chồng lên nhau */}
+      <img src={borderFrame} alt="Banner Border Frame 1" className="banner-border-frame border-frame-layer-1" />
+      <img src={borderFrame2} alt="Banner Border Frame 2" className="banner-border-frame border-frame-layer-2" />
 
       {/* Các chấm điều hướng */}
       <div className="banner-dots">
